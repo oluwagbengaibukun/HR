@@ -16,46 +16,73 @@ The Dataset for this project was gotten from Kaggle.  The dataset consisted of t
 # Data Cleaning
 The first of the dataset is in CSV file in excel which was clustered up in one column
  ![image](https://user-images.githubusercontent.com/51271692/185365480-2945e59d-98d1-4d0b-8bb6-7ab6708fe28a.png)
+ 
 The file was loaded/imported as Text/CSV to Power BI and then Transform Data to load into power query for cleaning.
+
 ![image](https://user-images.githubusercontent.com/51271692/185365831-f2f54633-7921-4ca9-a702-3972ec61db39.png)
+
 then Transform Data to load into power query for cleaning.
 ![image](https://user-images.githubusercontent.com/51271692/185368023-66321777-d448-4178-9837-fdbac4ed9543.png)
+
 the clustered column was split in power query by clicking split column by delimiter and specifying the delimiter that will be use to split the text column which is: “split at each occurrence of the delimiter” and clicking on the advance options and select columns.
+
 ![image](https://user-images.githubusercontent.com/51271692/185369116-b71d5ce8-001e-4225-b42b-56ddd21c8d65.png)
 The image below is the resulting state after splitting the columns appropriately 
+
 ![image](https://user-images.githubusercontent.com/51271692/185369312-40e46008-3fc4-4d9c-9720-6349691ae205.png)
+
 but note that the column headers are not rightly named, so I cleaned up the column header by “Using First Row as Header” options at the menu bar which auto set the first row as the header
+
 ![image](https://user-images.githubusercontent.com/51271692/185369463-f84d2ad6-5a3b-403f-b226-4cd9a5b2bbaf.png)
+
 The table contains 35 columns in total after the split and 1470 rows saved and loaded up to our power BI for analysis and visualization.
 ![image](https://user-images.githubusercontent.com/51271692/185369847-cca5c90d-4dcf-4476-b5ec-b08ddd2f956f.png)
+
 The second table that contains the employee numbers and names was loaded to power Bi query.
 ![image](https://user-images.githubusercontent.com/51271692/185369949-30413751-7a7c-48b5-a363-4d07c453f266.png)
+
 And the table is merge with the first table through the common key/attribute which is employee number.
+
 ![image](https://user-images.githubusercontent.com/51271692/185370249-79045ae6-ff14-4fd2-8e8c-c3b13ba3c0e3.png)
 A new column was generated as shown below as “HR employee data” but the contents are not the employee’s names.
+
 ![image](https://user-images.githubusercontent.com/51271692/185370830-3695719f-6102-4463-8d5f-fbe7c166f338.png)
+
 In order to fix this, went to on more option on the newly added column which is HR employee data, deselect the “use original column name as prefix” and deselect the Employee number since the relationship was established on that attribute.
+
 ![image](https://user-images.githubusercontent.com/51271692/185370941-87100438-2011-4455-b351-665b4e50eba7.png)
+
 And the column has been fixed with the right content as the employee’s name rather than the table that was earlier capture.
+
 ![image](https://user-images.githubusercontent.com/51271692/185371042-e144e928-2ae2-452d-b4dc-0454449d1fbb.png)
 
 
 # Analysis for Visualization
 During the course of analysis and visualization, some columns were added based on the insights we wanted to get from the data such as: Employees due for promotion, employee due retirement/retrenchment, employee contract type. 
 For employee that has not been promoted in the last 7 to 15 years are due for promotion. The existing “YearSinceLastPromotion” column was use to get the new column “Promotion”. This was achieved by selecting “YearSinceLastPromotion” column and then using the “Conditional Column” under the “Add Column” menu
+
 ![image](https://user-images.githubusercontent.com/51271692/185371767-d74009c8-d9db-400c-87d9-04b431af32eb.png)
+
 Then the Conditional Column setting section is open and the right conditions are put in place
+
 ![image](https://user-images.githubusercontent.com/51271692/185374413-fb8c3408-8a95-4bb6-b0d7-ee3f7e946b8f.png)
+
 Below is the resulting image which shows the newly added column Promotion with the appropriate labels hereby increasing the number of columns.
 ![image](https://user-images.githubusercontent.com/51271692/185374544-0b08ec68-bee5-4def-bb23-e2937ad73302.png)
+
 Retirement status column was added with the same process as the Promotion column but this time, “YearAtCompany” and “Age” columns were used as measures (YearAtCompany was selected before going to the conditional column tab).  The image below shows the measures used to arrive as the Retirement status 
 ![image](https://user-images.githubusercontent.com/51271692/185374604-7fbfb5a0-e4f4-497e-b0a9-a2136582df44.png)
+
 And here is the resulting Retirement status Column which was use to capture the number of active employees in the organization.
 ![image](https://user-images.githubusercontent.com/51271692/185374663-7676377b-87a4-4f5f-a366-405fa477bf2f.png)
+
 Contract type column was added with the same process but different measures. Employees in the company are either on contract or permanent bases based on their numbers of years at the company.
 ![image](https://user-images.githubusercontent.com/51271692/185374773-3fe19921-7192-418a-9a9d-907e97fe16f8.png)
+
 Contract employee are the employee that are less than 2 years   in the company and 2 years above are confirmed as permanent staffs.
 ![image](https://user-images.githubusercontent.com/51271692/185374888-f313c509-254c-4c63-8e0a-4bddbc0ddbb4.png)
+
+
 # Data Analysis
 Dax Measures 
 In order to analysis the data and achieve the desired outcome, a number of Dax measures were created:
